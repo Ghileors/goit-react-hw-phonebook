@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styles from './PhoneBook.module.css';
 
 const Filter = ({ onChange }) => (
@@ -14,5 +15,9 @@ const Filter = ({ onChange }) => (
         </label>
     </>
 );
+
+Filter.propTypes = {
+    onChange: PropTypes.func.isRequired,
+};
 
 export default Filter;
