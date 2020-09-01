@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
+import Section from '../Section';
+
 import styles from './PhoneBook.module.css';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -33,7 +36,7 @@ class ContactForm extends Component {
     render() {
         const { name, number } = this.state;
         return (
-            <>
+            <Section title="Phonebook">
                 <form
                     className={styles.contact__form}
                     onSubmit={this.submitHandler}
@@ -66,7 +69,7 @@ class ContactForm extends Component {
                         Add contact
                     </button>
                 </form>
-            </>
+            </Section>
         );
     }
 }

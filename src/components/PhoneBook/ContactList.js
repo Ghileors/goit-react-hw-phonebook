@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import Section from '../Section';
 import ContactItem from './ContactItem';
+
 import styles from './PhoneBook.module.css';
 
 const ContactList = ({ contacts, onDelete }) => {
     return (
-        <>
+        <Section title="Contacts">
             {contacts ? (
                 <ul className={styles.contact__list}>
                     {contacts.map(({ id, name, number }) => (
@@ -20,7 +23,7 @@ const ContactList = ({ contacts, onDelete }) => {
             ) : (
                 <p> No contact with such name in your phone </p>
             )}
-        </>
+        </Section>
     );
 };
 

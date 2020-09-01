@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Section from './components/Section';
+
 import ContactForm from './components/PhoneBook/ContactForm';
 import ContactList from './components/PhoneBook/ContactList';
 import Filter from './components/PhoneBook/Filter';
@@ -58,18 +58,16 @@ class App extends Component {
         const { contacts } = this.state;
         return (
             <>
-                <Section title="Phonebook">
-                    <ContactForm addContact={this.addContact} />
-                </Section>
-                <Section title="Contacts">
-                    {contacts.length > 1 && (
-                        <Filter onChange={this.changeHandler} />
-                    )}
-                    <ContactList
-                        contacts={this.filterContacts()}
-                        onDelete={this.deleteContact}
-                    />
-                </Section>
+                <ContactForm addContact={this.addContact} />
+
+                {contacts.length > 1 && (
+                    <Filter onChange={this.changeHandler} />
+                )}
+
+                <ContactList
+                    contacts={this.filterContacts()}
+                    onDelete={this.deleteContact}
+                />
             </>
         );
     }
