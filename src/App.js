@@ -15,16 +15,14 @@ class App extends Component {
         filter: '',
     };
 
-    changeHandler = event => {
-        const { name, value } = event.target;
+    changeHandler = ({ target }) => {
+        const { name, value } = target;
 
-        this.setState({
-            [name]: value,
-        });
+        this.setState({ [name]: value });
     };
 
-    addContact = contact => {
-        const newName = contact.name;
+    addContact = NewContact => {
+        const newName = NewContact.name;
         const names = this.state.contacts.map(contact =>
             contact.name.toLowerCase(),
         );
@@ -32,7 +30,7 @@ class App extends Component {
             alert(`${newName} is already in contacts`);
         } else {
             this.setState(state => ({
-                contacts: [...state.contacts, contact],
+                contacts: [...state.contacts, NewContact],
             }));
         }
     };
@@ -40,9 +38,7 @@ class App extends Component {
     deleteContact = id => {
         const { contacts } = this.state;
         const updatedContacts = contacts.filter(contact => contact.id !== id);
-        this.setState({
-            contacts: [...updatedContacts],
-        });
+        this.setState({ contacts: updatedContacts });
     };
 
     filterContacts = () => {
@@ -58,7 +54,7 @@ class App extends Component {
         const { contacts } = this.state;
         return (
             <>
-                <ContactForm addContact={this.addContact} />
+                <ContactForm onAddContact={this.addContact} />
 
                 {contacts.length > 1 && (
                     <Filter onChange={this.changeHandler} />

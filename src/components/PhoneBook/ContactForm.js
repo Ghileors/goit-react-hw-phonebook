@@ -24,7 +24,7 @@ class ContactForm extends Component {
             name: name,
             number: number,
         };
-        this.props.addContact(contact);
+        this.props.onAddContact(contact);
 
         this.reset();
     };
@@ -77,7 +77,7 @@ class ContactForm extends Component {
 ContactForm.propTypes = {
     name: PropTypes.string,
     number: PropTypes.number,
-    addContact: PropTypes.func.isRequired,
+    onAddContact: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
