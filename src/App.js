@@ -21,16 +21,17 @@ class App extends Component {
         this.setState({ [name]: value });
     };
 
-    addContact = NewContact => {
-        const newName = NewContact.name;
+    addContact = newContact => {
+        const newName = newContact.name;
         const names = this.state.contacts.map(contact =>
             contact.name.toLowerCase(),
         );
+
         if (names.includes(newName.toLowerCase().trim())) {
             alert(`${newName} is already in contacts`);
         } else {
             this.setState(state => ({
-                contacts: [...state.contacts, NewContact],
+                contacts: [...state.contacts, newContact],
             }));
         }
     };
@@ -43,11 +44,9 @@ class App extends Component {
 
     filterContacts = () => {
         const { contacts, filter } = this.state;
-        if (contacts.length) {
-            return contacts.filter(contact =>
-                contact.name.toLowerCase().includes(filter.toLowerCase()),
-            );
-        }
+        return contacts.filter(contact =>
+            contact.name.toLowerCase().includes(filter.toLowerCase()),
+        );
     };
 
     render() {
