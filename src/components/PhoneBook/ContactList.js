@@ -9,7 +9,7 @@ import styles from './PhoneBook.module.css';
 const ContactList = ({ contacts, onDelete }) => {
     return (
         <Section title="Contacts">
-            {!!contacts.length && (
+            {contacts && (
                 <ul className={styles.contact__list}>
                     {contacts.map(({ id, ...prop }) => (
                         <ContactItem
@@ -21,9 +21,7 @@ const ContactList = ({ contacts, onDelete }) => {
                 </ul>
             )}
 
-            {!contacts.length && (
-                <p> No contact with such name in your phone </p>
-            )}
+            {!contacts && <p> No contact with such name in your phone </p>}
         </Section>
     );
 };
