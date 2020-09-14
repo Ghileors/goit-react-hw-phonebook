@@ -15,23 +15,39 @@ class App extends Component {
         filter: '',
     };
 
+    componentDidMount() {
+        const storedContacts = JSON.parse(localStorage.getItem('contacts'));
+
+        if (storedContacts) {
+            this.setState({ contacts: storedContacts });
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        const nextContacts = this.state.contacts;
+        const prevContacts = prevState.contacts;
+
+        if (prevContacts !== nextContacts) {
+            localStorage.setItem('contacts', JSON.stringify(nextContacts));
+        }
+    }
+
     changeHandler = ({ target }) => {
         const { name, value } = target;
 
         this.setState({ [name]: value });
     };
 
-    addContact = newContact => {
-        const newName = newContact.name;
+    addContact = NewContact => {
+        const newName = NewContact.name;
         const names = this.state.contacts.map(contact =>
             contact.name.toLowerCase(),
         );
-
         if (names.includes(newName.toLowerCase().trim())) {
             alert(`${newName} is already in contacts`);
         } else {
             this.setState(state => ({
-                contacts: [...state.contacts, newContact],
+                contacts: [...state.contacts, NewContact],
             }));
         }
     };
@@ -44,9 +60,11 @@ class App extends Component {
 
     filterContacts = () => {
         const { contacts, filter } = this.state;
-        return contacts.filter(contact =>
-            contact.name.toLowerCase().includes(filter.toLowerCase()),
-        );
+        if (contacts.length) {
+            return contacts.filter(contact =>
+                contact.name.toLowerCase().includes(filter.toLowerCase()),
+            );
+        }
     };
 
     render() {
