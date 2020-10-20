@@ -1,0 +1,16 @@
+.Button {
+    all: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    background-image: url(https://www.flaticon.com/svg/static/icons/svg/1828/1828843.svg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-color: #696969;
+    box-shadow: var(--main-shadow);
+    cursor: pointer;
+}

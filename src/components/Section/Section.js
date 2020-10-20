@@ -1,20 +1,22 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { CSSTransition } from 'react-transition-group';
 
-import styles from './Section.module.css';
+import style from './Section.module.scss';
+import AppearStyles from './AppearStyles.module.scss';
 
-const Section = ({ title, children }) => {
+export default function Section({ title, children }) {
     return (
-        <section className={styles.section}>
-            <h2 className={styles.title}>{title}</h2>
+        <div className={style.Section}>
+            <CSSTransition
+                in={true}
+                appear
+                unmountOnExit
+                classNames={AppearStyles}
+                timeout={2000}
+            >
+                <h2 ref={React.createRef()}>{title}</h2>
+            </CSSTransition>
             {children}
-        </section>
+        </div>
     );
-};
-
-Section.propTypes = {
-    title: PropTypes.string.isRequired,
-    children: PropTypes.node.isRequired,
-};
-
-export default Section;
+}

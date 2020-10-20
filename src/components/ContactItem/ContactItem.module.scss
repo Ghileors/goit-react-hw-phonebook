@@ -1,0 +1,11 @@
+.ContactItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    width: 90%;
+    margin-bottom: 5px;
+    border-radius: 10px;
+
+    box-shadow: var(--main-shadow);
+}

@@ -1,0 +1,19 @@
+.ContactList {
+    width: 70%;
+    min-height: 300px;
+    padding: 10px;
+}
+
+.ContactItem {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 5px;
+
+    box-shadow: var(--main-shadow);
+}
+
+.ContactItem > button {
+    margin: 0;
+}
