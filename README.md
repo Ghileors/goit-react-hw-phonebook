@@ -1,29 +1,10 @@
-# Установка зависимостей
+### GoIT React home work phonebook
 
-Установить в проект следующие пакеты.
+[Links to the task](https://github.com/goitacademy/react-homework/tree/master/homework-02/phonebook) / 
+(https://github.com/goitacademy/react-homework/tree/master/homework-05) / 
+(https://github.com/goitacademy/react-homework/tree/master/homework-06) /
+(https://github.com/goitacademy/react-homework/tree/master/homework-07) /
+(https://github.com/goitacademy/react-homework/tree/master/homework-08) /
+(https://github.com/goitacademy/react-homework/tree/master/hooks)
 
-```bash
-npm install --save-dev prettier husky lint-staged
-```
-
-## Интерграция плагинов
-
-Ссылки на документацию по интеграции плагинов в популярные редакторы.
-
-- [Prettier editor integration](https://prettier.io/docs/en/editors.html)
-- [ESLint editor integration](https://eslint.org/docs/user-guide/integrations)
-
-## Настройки VSCode
-
-Для комфортной работы, после установки плагинов, нужно добавить несколько
-настроек редактора для автосохранения и форматирования файлов.
-
-```json
-{
-  "files.autoSave": "onFocusChange",
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  }
-}
-```
+[Link to the GitHub Pages](https://ghileors.github.io/goit-react-hw-phonebook/)
