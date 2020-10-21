@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import NumberFormat from 'react-number-format';
 import { CSSTransition } from 'react-transition-group';
+import { connect } from 'react-redux';
+import NumberFormat from 'react-number-format';
 
-import Notification from '../Notification';
+import Notification from '../Notification/Notification';
+import contactsActions from '../../redux/contacts/contactsActions';
 
-import AppearStyles from './AppearStyles.module.scss';
 import style from './ContactForm.module.scss';
+import AppearStyles from './AppearStyles.module.scss';
 
 import { v4 as uuidv4 } from 'uuid';
 
-export default class ContactForm extends Component {
+class ContactForm extends Component {
     state = {
         name: '',
         number: '',
@@ -26,15 +27,14 @@ export default class ContactForm extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
+
         const { name, number } = this.state;
-
-        const existedContacts = this.props.appState.contacts.map(
-            contact => contact.name,
-        );
-
+        const existingContacts = this.props.contacts.map(cont => cont.name);
         const newName = this.state.name;
-        existedContacts.includes(newName) && this.showNotification();
-        this.props.onSubmit({
+
+        existingContacts.includes(newName) && this.showNotification();
+
+        this.props.onAddContact({
             id: uuidv4(),
             name: name,
             number: number,
@@ -48,7 +48,7 @@ export default class ContactForm extends Component {
 
     showNotification = () => {
         this.setState({ existingContact: true });
-        setTimeout(() => this.setState({ existingContact: false }), 5000);
+        setTimeout(() => this.setState({ existingContact: false }), 2000);
     };
 
     render() {
@@ -99,8 +99,12 @@ export default class ContactForm extends Component {
     }
 }
 
-ContactForm.propTypes = {
-    name: PropTypes.string,
-    number: PropTypes.string,
-    existingContact: PropTypes.bool,
+const mapStateToProps = state => ({
+    contacts: state.contacts.contacts,
+});
+
+const mapDispatchToProps = {
+    onAddContact: contactsActions.addContact,
 };
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
