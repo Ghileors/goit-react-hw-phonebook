@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { CSSTransition } from 'react-transition-group';
 
-import contactsActions from '../../redux/contacts/contactsActions';
+import * as contactsActions from '../../redux/contacts/contacts-actions';
+import contactsSelectors from '../../redux/contacts/contacts-selectors';
+
 import AppearStyles from './AppearStyles.module.scss';
 
 const Filter = ({ contacts, value, onChangeFilter }) =>
@@ -22,8 +24,8 @@ const Filter = ({ contacts, value, onChangeFilter }) =>
     );
 
 const mapStateToProps = state => ({
-    value: state.contacts.filter,
-    contacts: state.contacts.contacts,
+    value: contactsSelectors.getFilter(state),
+    contacts: contactsSelectors.getContacts(state),
 });
 
 const mapDispatchToProps = {

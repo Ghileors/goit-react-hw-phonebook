@@ -1,22 +1,7 @@
 import React from 'react';
 
-import ContactForm from './ContactForm/ContactForm';
-import ContactList from './ContactList/ContactList';
-import Section from './Section/Section';
-import Filter from './Filter/Filter';
+import ContactsView from './views/ContactsView';
 
-const App = () => (
-    <>
-        <Section title="Phonebook">
-            <ContactForm />
-        </Section>
-        <hr />
+const App = () => <ContactsView />;
 
-        <Section title="Contacts">
-            <Filter />
-            <ContactList />
-        </Section>
-        <hr />
-    </>
-);
 export default App;

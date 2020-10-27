@@ -1,6 +1,7 @@
 import React from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
+import contactsSelectors from '../../redux/contacts/contacts-selectors';
 
 import ContactItem from '../ContactItem/ContactItem';
 
@@ -25,15 +26,9 @@ const ContactList = ({ contacts }) => {
         </>
     );
 };
-const mapStateToProps = state => {
-    const { contacts, filter } = state.contacts;
-    const visibleContacts = contacts.filter(
-        contact =>
-            contact.name.toLowerCase().includes(filter.toLowerCase()) ||
-            contact.number.includes(filter),
-    );
-    return {
-        contacts: visibleContacts,
-    };
-};
+
+const mapStateToProps = state => ({
+    contacts: contactsSelectors.getVisibleContacts(state),
+});
+
 export default connect(mapStateToProps)(ContactList);

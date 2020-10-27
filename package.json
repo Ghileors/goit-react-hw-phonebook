@@ -8,7 +8,9 @@
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.5.0",
         "@testing-library/user-event": "^7.2.1",
+        "axios": "^0.21.0",
         "gh-pages": "^3.1.0",
+        "json-server": "^0.16.2",
         "modern-normalize": "^0.7.0",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
@@ -19,6 +21,7 @@
         "redux": "^4.0.5",
         "redux-logger": "^3.0.6",
         "redux-persist": "^6.0.0",
+        "reselect": "^4.0.0",
         "sass": "^1.27.0",
         "uuid": "^8.3.0"
     },
@@ -27,6 +30,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
+        "api-server": "json-server --port 4040 --delay 300 --watch db.json",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build"
     },

@@ -3,19 +3,19 @@ import { CSSTransition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import NumberFormat from 'react-number-format';
 
+import contactsSelectors from '../../redux/contacts/contacts-selectors';
+import contactsOperations from '../../redux/contacts/contacts-operations';
+
 import Notification from '../Notification/Notification';
-import contactsActions from '../../redux/contacts/contactsActions';
 
 import style from './ContactForm.module.scss';
 import AppearStyles from './AppearStyles.module.scss';
-
-import { v4 as uuidv4 } from 'uuid';
-
 class ContactForm extends Component {
     state = {
         name: '',
         number: '',
         existingContact: false,
+        errorMessage: '',
     };
 
     handleChange = event => {
@@ -29,16 +29,19 @@ class ContactForm extends Component {
         event.preventDefault();
 
         const { name, number } = this.state;
-        const existingContacts = this.props.contacts.map(cont => cont.name);
-        const newName = this.state.name;
-
-        existingContacts.includes(newName) && this.showNotification();
-
-        this.props.onAddContact({
-            id: uuidv4(),
-            name: name,
-            number: number,
-        });
+        const existedContacts = this.props.contacts.map(contact =>
+            contact.name.toLowerCase(),
+        );
+        if (existedContacts.includes(name.toLowerCase())) {
+            this.showNotification(`${name} is already on the list!`);
+        } else if (!name || !number) {
+            this.showNotification('You are trying to add an empty field!');
+        } else {
+            this.props.onAddContact({
+                name: name,
+                number: number,
+            });
+        }
 
         this.setState({
             name: '',
@@ -100,11 +103,9 @@ class ContactForm extends Component {
 }
 
 const mapStateToProps = state => ({
-    contacts: state.contacts.contacts,
+    contacts: contactsSelectors.getContacts(state),
 });
-
 const mapDispatchToProps = {
-    onAddContact: contactsActions.addContact,
+    onAddContact: contactsOperations.addContact,
 };
-
 export default connect(mapStateToProps, mapDispatchToProps)(ContactForm);
