@@ -1,58 +1,58 @@
 {
-    "name": "goit-react-hw-phonebook",
-    "version": "0.1.0",
-    "private": true,
-    "homepage": "https://Ghileors.github.io/goit-react-hw-phonebook",
-    "dependencies": {
-        "@reduxjs/toolkit": "^1.4.0",
-        "@testing-library/jest-dom": "^4.2.4",
-        "@testing-library/react": "^9.5.0",
-        "@testing-library/user-event": "^7.2.1",
-        "axios": "^0.21.0",
-        "gh-pages": "^3.1.0",
-        "json-server": "^0.16.2",
-        "modern-normalize": "^0.7.0",
-        "react": "^16.13.1",
-        "react-dom": "^16.13.1",
-        "react-number-format": "^4.4.1",
-        "react-redux": "^7.2.1",
-        "react-scripts": "^3.4.4",
-        "react-transition-group": "^4.4.1",
-        "redux": "^4.0.5",
-        "redux-logger": "^3.0.6",
-        "redux-persist": "^6.0.0",
-        "reselect": "^4.0.0",
-        "sass": "^1.27.0",
-        "uuid": "^8.3.0"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "api-server": "json-server --port 4040 --delay 300 --watch db.json",
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -d build"
-    },
-    "eslintConfig": {
-        "extends": "react-app"
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "husky": "^4.2.5",
-        "lint-staged": "^10.2.11",
-        "prettier": "^2.0.5",
-        "prop-types": "^15.7.2"
-    }
+  "name": "react-18",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "https://Ghileors.github.io/goit-react-hw-phonebook",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.4.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.3",
+    "classnames": "^2.2.6",
+    "modern-normalize": "^0.6.0",
+    "node-sass": "^4.14.1",
+    "react": "^16.13.1",
+    "react-bootstrap": "^1.4.0",
+    "react-dom": "^16.13.1",
+    "react-number-format": "^4.4.1",
+    "react-redux": "^7.2.0",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "3.4.1",
+    "react-transition-group": "^4.4.1",
+    "redux": "^4.0.5",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^6.0.0",
+    "shortid": "^2.2.15"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.10",
+    "prettier": "^2.0.5",
+    "prop-types": "^15.7.2"
+  }
 }

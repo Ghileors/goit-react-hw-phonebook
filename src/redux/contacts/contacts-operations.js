@@ -1,57 +1,45 @@
 import axios from 'axios';
 
-import {
-    addContactRequest,
-    addContactSuccess,
-    addContactError,
-    removeContactRequest,
-    removeContactSuccess,
-    removeContactError,
-    fetchContactsRequest,
-    fetchContactsSuccess,
-    fetchContactsError,
-} from './contacts-actions';
-
-axios.defaults.baseURL = 'http://localhost:4040';
+import contactsActions from './contacts-actions';
 
 const fetchContacts = () => async dispatch => {
-    dispatch(fetchContactsRequest());
+  dispatch(contactsActions.fetchContactsRequest());
 
-    try {
-        const { data } = await axios.get('/contacts');
+  try {
+    const { data } = await axios.get('/contacts');
 
-        dispatch(fetchContactsSuccess(data));
-    } catch (error) {
-        dispatch(fetchContactsError(error));
-    }
+    dispatch(contactsActions.fetchContactsSuccess(data));
+  } catch (error) {
+    dispatch(contactsActions.fetchContactsError(error));
+  }
 };
 
 const addContact = contact => async dispatch => {
-    dispatch(addContactRequest());
+  dispatch(contactsActions.addContactRequest());
 
-    try {
-        const { data } = await axios.post('/contacts', contact);
+  try {
+    const { data } = await axios.post('/contacts', contact);
 
-        dispatch(addContactSuccess(data));
-    } catch (error) {
-        dispatch(addContactError(error));
-    }
+    dispatch(contactsActions.addContactSuccess(data));
+  } catch (error) {
+    dispatch(contactsActions.addContactError(error));
+  }
 };
 
 const deleteContact = contactId => async dispatch => {
-    dispatch(removeContactRequest());
+  dispatch(contactsActions.removeContactRequest());
 
-    try {
-        await axios.delete(`/contacts/${contactId}`);
+  try {
+    await axios.delete(`/contacts/${contactId}`);
 
-        dispatch(removeContactSuccess(contactId));
-    } catch (error) {
-        dispatch(removeContactError(error));
-    }
+    dispatch(contactsActions.removeContactSuccess(contactId));
+  } catch (error) {
+    dispatch(contactsActions.removeContactError(error));
+  }
 };
 
 export default {
-    fetchContacts,
-    addContact,
-    deleteContact,
+  fetchContacts,
+  addContact,
+  deleteContact,
 };

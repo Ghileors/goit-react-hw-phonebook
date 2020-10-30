@@ -1,0 +1,53 @@
+.AppWrapper {
+  position: relative;
+  height: 670px;
+  width: 350px;
+  margin-top: 10px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 32px;
+  padding-bottom: 20px;
+  border: 14px solid rgb(51, 53, 54);
+  border-radius: 38px;
+  background: rgb(35, 37, 38);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  overflow-y: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 34px;
+    width: 200px;
+    background: rgb(51, 53, 54);
+    border-radius: 0px 0px 16px 16px;
+    z-index: 2;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 138px;
+    background: rgb(170, 170, 170);
+    border-radius: 20px;
+    z-index: 2;
+  }
+}
+
+.LogoutBtn,
+.LoginBtn,
+.RegistrationBtn {
+  padding: 8px 18px;
+  background: #1c91b4;
+  border-radius: 6px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}

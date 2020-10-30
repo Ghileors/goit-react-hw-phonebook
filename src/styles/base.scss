@@ -1,0 +1,51 @@
+@import 'styles/shared';
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: linear-gradient(
+    to right,
+    #e0e5eb,
+    #c7d5da,
+    #b1c5c3,
+    #a2b4a9,
+    #9ba18e
+  );
+  font-size: 10px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}

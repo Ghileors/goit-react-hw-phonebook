@@ -1,0 +1,22 @@
+.ContactFormInput {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+}
+
+.ContactFormLabel {
+  position: relative;
+}
+
+.addButton {
+  margin: 20px 0;
+  padding: 8px;
+  background: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+}

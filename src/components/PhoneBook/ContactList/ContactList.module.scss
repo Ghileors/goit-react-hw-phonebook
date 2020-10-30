@@ -1,0 +1,17 @@
+.ContactListWrp {
+  width: 100%;
+  height: 250px;
+  overflow-y: scroll;
+  transition: 0.3s ease-in-out;
+}
+
+.ContactList {
+  width: 100%;
+  padding: 5px 0 60px;
+  transition: 0.2s ease-in-out;
+}
+
+.Text {
+  margin-left: auto;
+  margin-right: auto;
+}
